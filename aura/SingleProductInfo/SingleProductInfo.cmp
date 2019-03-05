@@ -1,0 +1,21 @@
+<aura:component >
+
+    <aura:attribute name="productName" type="String" />
+    <aura:attribute name="productPrice" type="Decimal" />
+    <aura:attribute name="currencyIsoCode" type="String" />
+    <aura:attribute name="percent" type="Boolean" />
+
+    <p class="slds-p-horizontal_small">
+        {! $Label.c.ProductInfo_ProductName } {! v.productName }
+    </p>
+    <p class="slds-p-horizontal_small">
+        {! $Label.c.ProductInfo_ProductCost } 
+        <aura:if isTrue="{! v.percent }" >
+            <lightning:formattedNumber value="{! v.productPrice / 100 }" style="percent" maximumFractionDigits="2" />
+            <aura:set attribute="else">
+                <lightning:formattedNumber value="{! v.productPrice }" style="currency" currencyCode="{! v.currencyIsoCode }" />
+            </aura:set>
+        </aura:if>
+    </p>
+
+</aura:component>

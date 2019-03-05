@@ -1,0 +1,30 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="ProductInfoController">
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }" />
+
+    <aura:attribute name="productInfo" type="sObject" />
+    <aura:attribute name="additionProductsInfo" type="sObject[]" />
+
+    <lightning:card title="{! $Label.c.ProductInfo_ProductInfo }">
+        <c:SingleProductInfo
+            productName="{! v.productInfo.Product2.Name }"
+            productPrice="{! v.productInfo.UnitPrice }"
+            currencyIsoCode="{! v.productInfo.CurrencyIsoCode }"
+            percent="{! v.productInfo.Product2.Percent__c }"
+        />
+
+        <p class="slds-p-horizontal_small slds-p-top_small slds-p-bottom_small">
+            {! $Label.c.ProductInfo_AdditionalInfo }
+        </p>
+
+        <aura:iteration items="{! v.additionProductsInfo }" var="addProd">
+            <c:SingleProductInfo
+                productName="{! addProd.Product2.Name }"
+                productPrice="{! addProd.UnitPrice }"
+                currencyIsoCode="{! addProd.CurrencyIsoCode }"
+                percent="{! addProd.Product2.Percent__c }"
+            />
+        </aura:iteration>
+    </lightning:card>
+
+</aura:component>
