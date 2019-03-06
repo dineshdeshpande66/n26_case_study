@@ -47,7 +47,7 @@ public with sharing class SendEmailHandler {
             //available count of .sendEmail invocations for current transaction
             Integer availableSendEmailCount = SEND_EMAIL_PER_TRANSACTION - Limits.getEmailInvocations();
 
-            sendEmailCount = (availableSendEmailCount > sendEmailCount) ? availableSendEmailCount : sendEmailCount;
+            sendEmailCount = (availableSendEmailCount > sendEmailCount) ? sendEmailCount : availableSendEmailCount;
             //split this.messages array to sub-arrays of 100 elements and send these sub-arrays
             for (Integer batchIntd = 0; batchIntd < sendEmailCount; batchIntd++) { //send up to 100 emails per .sendEmail invocation
                 Integer startIndex = batchIntd * EMAILS_PER_BATCH;
