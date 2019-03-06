@@ -1,6 +1,6 @@
-public with sharing class ProductSelector {
+public inherited sharing class ProductsSelector {
 
-    public ProductSelector() {}
+    public ProductsSelector() {}
 
     public static List<PricebookEntry> getProductWithRelations(Id productId) {
         return [

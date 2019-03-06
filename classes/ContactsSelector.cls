@@ -1,4 +1,4 @@
-public class ContactsSelector {
+public inherited sharing class ContactsSelector {
 
     public ContactsSelector() {}
 

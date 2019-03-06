@@ -1,6 +1,6 @@
-public with sharing class CaseSelector {
+public inherited sharing class CasesSelector {
     
-    public CaseSelector() {}
+    public CasesSelector() {}
 
     public static Case getCaseById(Id caseId) {
         return [

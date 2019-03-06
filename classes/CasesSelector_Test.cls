@@ -1,5 +1,5 @@
 @isTest
-private class CaseSelector_Test {
+private class CasesSelector_Test {
 
     @isTest static void testGetCaseById() {
         Account acc = DataFactory.createAccount('test');
@@ -7,7 +7,7 @@ private class CaseSelector_Test {
         Case cas = DataFactory.createCase(acc.Id, con.Id, 'test');
 
         Test.startTest();
-        Case c = CaseSelector.getCaseById(cas.Id);
+        Case c = CasesSelector.getCaseById(cas.Id);
 
         System.assertEquals(c.Id, cas.Id);
         Test.stopTest();
